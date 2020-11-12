@@ -1,0 +1,24 @@
+Please follow the steps in the app servers
+============================================
+
+1) initializing the swarm mode for Docker
+
+    docker swarm init
+
+2) Join the node 2 as a worker swarm cluster using the token
+
+3) Build the Docker image 1
+
+    docker build -t app1 .
+
+4) 3) Build the Docker image 2
+
+    docker build -t app2 .
+
+5) Create a docker network using the "overlay" driver
+
+    docker network create -d overlay my-app-network
+
+6) Create the service for app-1
+
+    docker service create --name app-1 -p 80:80 --replicas 2 --network my-app-network 
