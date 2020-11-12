@@ -17,4 +17,10 @@ Please follow the below steps
    terraform plan
    terraform apply --auto-approve
    ```
+
 3. Follow the steps present in the steps.txt in the Docker folder
+
+4. Clone this repo in the nginx server and run the ansible playbook using the below command
+   ```bash
+   ansible-playbook playbook.yml
+   ```
