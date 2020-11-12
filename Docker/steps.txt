@@ -7,18 +7,10 @@ Please follow the steps in the app servers
 
 2) Join the node 2 as a worker swarm cluster using the token
 
-3) Build the Docker image 1
-
-    docker build -t app1 .
-
-4) 3) Build the Docker image 2
-
-    docker build -t app2 .
-
-5) Create a docker network using the "overlay" driver
+3) Create a docker network using the "overlay" driver
 
     docker network create -d overlay my-app-network
 
-6) Create the service for app-1
+9) Create the service for for the application
 
-    docker service create --name app-1 -p 80:80 --replicas 2 --network my-app-network 
+    docker service create --name app -p 80:80 --replicas 2 --network my-app-network nigelpoulton/pluralsight-docker-ci
