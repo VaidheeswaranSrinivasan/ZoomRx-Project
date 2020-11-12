@@ -1,0 +1,10 @@
+---
+- name: test nginx configuration validity
+  command: "nginx -t"
+  changed_when: no
+  become: yes
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted

@@ -1,0 +1,12 @@
+---
+nginx_port: 80
+nginx_sites_available: "/etc/nginx/sites-available"
+nginx_sites_enabled: "/etc/nginx/sites-enabled"
+
+app_nodes:
+  - name: app-1
+    app_server_host: ip-10-0-1-249.eu-west-2.compute.internal
+    app_server_port: 80
+  - name: app-2
+    app_server_host: ip-10-0-2-91.eu-west-2.compute.internal
+    app_server_port: 80

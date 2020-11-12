@@ -1,0 +1,42 @@
+---
+- name: "Install nginx"
+  yum:
+    name: nginx
+    state: present
+
+- name: "Remove the default conf file in sites available"
+  file:
+    name: "{{ nginx_sites_available }}/default"
+    state: absent
+
+- name: "Remove the default conf file in sites enabled"
+  file:
+    name: "{{ nginx_sites_enabled }}/default"
+    state: absent
+
+- name: "Configure nginx"
+  template:
+    src: "my-app.conf.j2"
+    dest: "{{ nginx_sites_available }}/my-app"
+    owner: "root"
+    force: "yes"
+  notify:
+    - test nginx configuration validity
+    - restart nginx
+
+- name: "Create link for the config file"
+  file:
+    src: "{{ nginx_sites_available }}/my-app"
+    dest: "{{ nginx_sites_enabled }}/my-app"
+    owner: root
+    group: root
+    state: link
+  notify:
+    - test nginx configuration validity
+    - restart nginx
+
+- name: "start and enable nginx"
+  service:
+    name: nginx
+    state: started
+    enabled: yes
