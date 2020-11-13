@@ -26,3 +26,9 @@ Please follow the below steps
    ```bash
    http://<nginx-server-ip>
    ```
+
+|    Actions             |  Tools Used                |
+| -----------------      | -------------------------- |
+| Infra Provisioning     |  Terraform                 |
+| Deployment             |  Ansible & Systems Manager |
+| Conatiner Orchestration|  Docker Swarm              |
