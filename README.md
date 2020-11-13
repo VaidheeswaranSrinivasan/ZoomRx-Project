@@ -1,4 +1,4 @@
-# ZoomRx-Project
+# ZoomRx-Project.
 Setting up nginx as reverse proxy and Load balancer
 
 The repository holds the code for setting up the nginx as reverse proxy and load balancer
