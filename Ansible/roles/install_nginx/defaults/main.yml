@@ -5,10 +5,10 @@ nginx_sites_enabled: "/etc/nginx/sites-enabled"
 
 app_nodes:
   - name: app-1
-    app_server_host: ip-10-0-1-249.eu-west-2.compute.internal
+    app_server_host: ip-10-0-1-124.eu-west-2.compute.internal
     app_server_port_1: 80
     app_server_port_2: 81
   - name: app-2
-    app_server_host: ip-10-0-2-91.eu-west-2.compute.internal
+    app_server_host: ip-10-0-2-149.eu-west-2.compute.internal
     app_server_port_1: 80
     app_server_port_2: 81

@@ -1,4 +1,4 @@
-# ZoomRx-Project
+# ZoomRx-Project.
 Setting up nginx as reverse proxy and Load balancer
 
 The repository holds the code for setting up the nginx as reverse proxy and load balancer
@@ -9,18 +9,26 @@ Required softwares to be installed in the local machine
 
 Please follow the below steps
 
-1. Set the AWS access and secret keys as env variables in the local machine.
+2. Set the AWS access and secret keys as env variables in the local machine.
 
-2. Create the servers using terraform commands
+3. Create the nginx server and app servers using below terraform commands
    ```bash
    terraform init
    terraform plan
    terraform apply --auto-approve
    ```
 
-3. Follow the steps present in the steps.txt in the Docker folder
+4. Follow the steps present in the steps.txt in the Docker folder
 
-4. Clone this repo in the nginx server and run the ansible playbook using the below command
+5. Run the SSM run command CLI command on to the nginx server to configure the nginx using ansible playbook
+
+6. Once the Run command is successful hit the below url
    ```bash
-   ansible-playbook playbook.yml
+   http://<nginx-server-ip>
    ```
+
+|    Actions             |  Tools Used                |
+| -----------------      | -------------------------- |
+| Infra Provisioning     |  Terraform                 |
+| Deployment             |  Ansible & Systems Manager |
+| Conatiner Orchestration|  Docker Swarm              |
