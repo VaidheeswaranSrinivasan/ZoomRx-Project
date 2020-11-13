@@ -1,6 +1,7 @@
 upstream app-servers {
         {% for item in app_nodes %}
-        server {{ item.app_server_host }}:{{ item.app_server_port }};
+        server {{ item.app_server_host }}:{{ item.app_server_port_1 }};
+        server {{ item.app_server_host }}:{{ item.app_server_port_2 }};
         {% endfor %}
 }
 

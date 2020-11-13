@@ -1,0 +1,14 @@
+
+================================
+Please run the below cli command
+================================
+
+aws ssm send-command --document-name "AWS-RunRemoteScript" \
+--document-version "1" \
+--targets '[{"Key":"tag:type","Values":["ec2-nginx-instance"]}]' \
+--parameters '{"sourceType":["GitHub"],"sourceInfo":["{ \n\"owner\" : \"VaidheeswaranSrinivasan\",\n\"repository\":\"ZoomRx-Project\",\n\"path\":\"Ansible\"\n}"],"commandLine":["ansible-playbook playbook.yml"],"workingDirectory":[""],"executionTimeout":["3600"]}' \
+--comment "nginx installation and configuration" \
+--timeout-seconds 600 \
+--max-concurrency "1" \
+--max-errors "0" \
+--region eu-west-2

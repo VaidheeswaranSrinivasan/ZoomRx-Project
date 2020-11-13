@@ -1,16 +1,28 @@
 Please follow the steps in the app servers
 ============================================
 
-1) initializing the swarm mode for Docker
+1) Go to app-1 folder and build the docker image
+
+    docker build -t app-1-image .
+
+2) Go to app-2 folder and build the docker image
+
+    docker build -t app-2-image .
+
+3) initializing the swarm mode for Docker on node-1
 
     docker swarm init
 
-2) Join the node 2 as a worker swarm cluster using the token
+4) Join the node 2 as a worker swarm cluster using the token
 
-3) Create a docker network using the "overlay" driver
+5) Create a docker network using the "overlay" driver
 
     docker network create -d overlay my-app-network
 
-9) Create the service for for the application
+6) Create the service for the application 1
 
-    docker service create --name app -p 80:80 --replicas 2 --network my-app-network nigelpoulton/pluralsight-docker-ci
+    docker service create --name app-1 -p 80:80 --replicas 2 --network my-app-network app-1-image
+
+7) Create the service for the application 2
+
+    docker service create --name app-2 -p 81:80 --replicas 2 --network my-app-network app-2-image

@@ -1,5 +1,5 @@
 instance_count              = 2
-name                        = "node-server"
+name                        = "app-server"
 ami                         = "ami-0a669382ea0feb73a"
 instance_type               = "t2.micro"
 subnet_filter               = "*public_1*"
@@ -30,7 +30,7 @@ tags = {
 sg_name = "app_sg"
 
 sg_tags = {
-    "descrition" = "The security group that allows HTTP access from Nginx server and SSH access from anywhere"
+    "descrition" = "The security group that allows SSH access from anywhere"
 }
 
 sg_rules = [
@@ -41,13 +41,5 @@ sg_rules = [
         to_port     = "22"
         protocol    = "TCP"
         cidr_blocks = ["0.0.0.0/0"]
-    },
-    {
-        type        = "ingress" 
-        description = "Allows HTTP access from anywhere"
-        from_port   = "80"
-        to_port     = "80"
-        protocol    = "TCP"
-        cidr_blocks = ["10.0.0.0/16"]
     }
 ]
